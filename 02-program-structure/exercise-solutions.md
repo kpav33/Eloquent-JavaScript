@@ -14,6 +14,7 @@ for (let i = "#"; i.length < 8; i += "#") {
   console.log(i);
 }
 ```
+***
 
 # FizzBuzz
 
@@ -41,6 +42,7 @@ for (let i = 0; i < 101; i++) {
   console.log(output || i);
 }
 ```
+***
 
 # ChessBoard
 
