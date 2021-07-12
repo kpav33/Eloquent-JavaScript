@@ -129,7 +129,6 @@ function nth(list, position) {
 ```
 
 ## Author's solution
-
 ```js
 function arrayToList(array) {
   let list = null;
@@ -163,5 +162,45 @@ function nth(list, n) {
 # Deep Comparison
 
 ## My Solution
+```js
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) {
+    return true;
+  }
+  
+  if (typeof obj1 === typeof obj2 && obj2 !== null && obj1 !== null) {
+    let objKeys1 = Object.keys(obj1);
+    let objKeys2 = Object.keys(obj2);
+    
+    if (objKeys1.length !== objKeys2.length) {
+      return false;
+    }
+    for (let key of objKeys1) {
+      if (!objKeys2.includes(key) || !deepEqual(obj1[key], obj2[key])) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
+```
 
 ## Author's solution
+```js
+function deepEqual(a, b) {
+  if (a === b) return true;
+  
+  if (a == null || typeof a != "object" ||
+      b == null || typeof b != "object") return false;
+
+  let keysA = Object.keys(a), keysB = Object.keys(b);
+
+  if (keysA.length != keysB.length) return false;
+
+  for (let key of keysA) {
+    if (!keysB.includes(key) || !deepEqual(a[key], b[key])) return false;
+  }
+
+  return true;
+}
+```
